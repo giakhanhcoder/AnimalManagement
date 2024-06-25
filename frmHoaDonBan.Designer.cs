@@ -171,6 +171,7 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin chung";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // textBox5
             // 
@@ -538,7 +539,7 @@
             // 
             // btnInHoaDon
             // 
-            btnInHoaDon.Location = new Point(473, 0);
+            btnInHoaDon.Location = new Point(498, 0);
             btnInHoaDon.Name = "btnInHoaDon";
             btnInHoaDon.Size = new Size(122, 23);
             btnInHoaDon.TabIndex = 6;

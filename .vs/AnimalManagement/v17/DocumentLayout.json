@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\frmdmnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmdmnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\frmhoadonban.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmhoadonban.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\class\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:class\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,39 +46,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmDMNhanVien.cs [Design]",
-              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmDMNhanVien.cs",
-              "RelativeDocumentMoniker": "frmDMNhanVien.cs",
-              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmDMNhanVien.cs [Design]",
-              "RelativeToolTip": "frmDMNhanVien.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-25T01:06:32.649Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAsAAAA",
+              "Title": "frmMain.Designer.cs",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.Designer.cs",
+              "RelativeDocumentMoniker": "frmMain.Designer.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.Designer.cs",
+              "RelativeToolTip": "frmMain.Designer.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAcwK8AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T13:00:13.28Z"
+              "WhenOpened": "2024-06-25T06:21:01.85Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmHoaDonBan.cs [Design]",
-              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmHoaDonBan.cs",
-              "RelativeDocumentMoniker": "frmHoaDonBan.cs",
-              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmHoaDonBan.cs [Design]",
-              "RelativeToolTip": "frmHoaDonBan.cs [Design]",
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T04:13:15.752Z",
+              "WhenOpened": "2024-06-25T06:20:56.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\frmMain.cs [Design]",
+              "RelativeToolTip": "frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T06:00:57.572Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Functions.cs",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Class\\Functions.cs",
+              "RelativeDocumentMoniker": "Class\\Functions.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Class\\Functions.cs",
+              "RelativeToolTip": "Class\\Functions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T05:20:42.754Z",
+              "EditorCaption": ""
             }
           ]
         }

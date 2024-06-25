@@ -16,3 +16,9 @@ D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-w
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.pdb
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.genruntimeconfig.cache
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\ref\AnimalManagement.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmDMChatLieu.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmDMHangHoa.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmDMKhachHang.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmDMNhanVien.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmTimKiemHD.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.sourcelink.json

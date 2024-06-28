@@ -31,3 +31,5 @@ D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-w
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.csproj.AssemblyReference.cache
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmMain.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalMa.F0A6B9FF.Up2Date
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\Interop.Microsoft.Office.Interop.Excel.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.csproj.ResolveComReference.cache

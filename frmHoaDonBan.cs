@@ -39,11 +39,11 @@ namespace AnimalManagement
             txtTongTien.ReadOnly = true;
             txtGiamGia.Text = "0";
             txtTongTien.Text = "0";
-            Functions.FillCombo("SELECT MaKhach, TenKhach FROM tblKhach", cboMaKhach, "MaKhach", "TenKhach");
+            Functions.FillCombo("SELECT customer_id, customer_name FROM Customer", cboMaKhach, "customer_id", "customer_id");
             cboMaKhach.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaNhanVien, TenNhanVien FROM tblNhanVien", cboMaNhanVien, "MaNhanVien", "TenNV");
+            Functions.FillCombo("SELECT staff_id, staff_name FROM Staff", cboMaNhanVien, "staff_id", "customer_name");
             cboMaNhanVien.SelectedIndex = -1;
-            Functions.FillCombo("SELECT MaHang, TenHang FROM tblHang", cboMaHang, "MaHang", "TenHang");
+            Functions.FillCombo("SELECT animal_id, animal_name FROM Animal", cboMaHang, "animal_id", "animal_name");
             cboMaHang.SelectedIndex = -1;
             //Hiển thị thông tin của một hóa đơn được gọi từ form tìm kiếm
             if (txtMaHDBan.Text != "")
@@ -57,11 +57,12 @@ namespace AnimalManagement
         private void LoadDataGridView()
         {
             string sql;
-            sql = "SELECT a.MaHang, b.TenHang, a.SoLuong, b.DonGiaBan, a.GiamGia,a.ThanhTien FROM tblChiTietHDBan AS a, tblHang AS b WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaHang=b.MaHang";
+            sql = "SELECT a.animal_id, b.animal_name, a.quantity, b.selling_price, a.discount,a.bill_detail_price " +
+                "FROM Bill_Detail AS a, Animal AS b WHERE a.bill_id= N'" + txtMaHDBan.Text + "' AND a.animal_id=b.animal_id";
             tblCTHDB = Functions.GetDataToTable(sql);
             dgvHDBanHang.DataSource = tblCTHDB;
-            dgvHDBanHang.Columns[0].HeaderText = "Mã hàng";
-            dgvHDBanHang.Columns[1].HeaderText = "Tên hàng";
+            dgvHDBanHang.Columns[0].HeaderText = "Mã loài vật";
+            dgvHDBanHang.Columns[1].HeaderText = "Tên loài vật";
             dgvHDBanHang.Columns[2].HeaderText = "Số lượng";
             dgvHDBanHang.Columns[3].HeaderText = "Đơn giá";
             dgvHDBanHang.Columns[4].HeaderText = "Giảm giá %";
@@ -79,13 +80,13 @@ namespace AnimalManagement
         private void LoadInfoHoaDon()
         {
             string str;
-            str = "SELECT NgayBan FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            str = "SELECT bill_date FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'";
             txtNgayBan.Text = Functions.ConvertDateTime(Functions.GetFieldValues(str));
-            str = "SELECT MaNhanVien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            str = "SELECT staff_id FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'";
             cboMaNhanVien.Text = Functions.GetFieldValues(str);
-            str = "SELECT MaKhach FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            str = "SELECT staff_id FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'";
             cboMaKhach.Text = Functions.GetFieldValues(str);
-            str = "SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            str = "SELECT total_price FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'";
             txtTongTien.Text = Functions.GetFieldValues(str);
             pa.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(txtTongTien.Text);
         }
@@ -119,7 +120,7 @@ namespace AnimalManagement
         {
             string sql;
             double sl, SLcon, tong, Tongmoi;
-            sql = "SELECT MaHDBan FROM tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+            sql = "SELECT bill_id FROM Bill WHERE bill_id=N'" + txtMaHDBan.Text + "'";
             if (!Functions.CheckKey(sql))
             {
                 // Mã hóa đơn chưa có, tiến hành lưu các thông tin chung
@@ -142,7 +143,7 @@ namespace AnimalManagement
                     cboMaKhach.Focus();
                     return;
                 }
-                sql = "INSERT INTO tblHDBan(MaHDBan, NgayBan, MaNhanVien, MaKhach, TongTien) VALUES (N'" + txtMaHDBan.Text.Trim() + "','" +
+                sql = "INSERT INTO Bill(bill_id, bill_date, staff_id, customer_id, total_price) VALUES (N'" + txtMaHDBan.Text.Trim() + "','" +
                         Functions.ConvertDateTime(txtNgayBan.Text.Trim()) + "',N'" + cboMaNhanVien.SelectedValue + "',N'" +
                         cboMaKhach.SelectedValue + "'," + txtTongTien.Text + ")";
                 Functions.RunSQL(sql);
@@ -167,7 +168,7 @@ namespace AnimalManagement
                 txtGiamGia.Focus();
                 return;
             }
-            sql = "SELECT MaHang FROM tblChiTietHDBan WHERE MaHang=N'" + cboMaHang.SelectedValue + "' AND MaHDBan = N'" + txtMaHDBan.Text.Trim() + "'";
+            sql = "SELECT bill_id FROM Bill_Detail WHERE animal_id=N'" + cboMaHang.SelectedValue + "' AND bill_id = N'" + txtMaHDBan.Text.Trim() + "'";
             if (Functions.CheckKey(sql))
             {
                 MessageBox.Show("Mã hàng này đã có, bạn phải nhập mã khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,7 +177,7 @@ namespace AnimalManagement
                 return;
             }
             // Kiểm tra xem số lượng hàng trong kho còn đủ để cung cấp không?
-            sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblHang WHERE MaHang = N'" + cboMaHang.SelectedValue + "'"));
+            sl = Convert.ToDouble(Functions.GetFieldValues("SELECT quantity FROM Animal WHERE animal_id= N'" + cboMaHang.SelectedValue + "'"));
             if (Convert.ToDouble(txtSoLuong.Text) > sl)
             {
                 MessageBox.Show("Số lượng mặt hàng này chỉ còn " + sl, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -184,17 +185,17 @@ namespace AnimalManagement
                 txtSoLuong.Focus();
                 return;
             }
-            sql = "INSERT INTO tblChiTietHDBan(MaHDBan,MaHang,SoLuong,DonGia, GiamGia,ThanhTien) VALUES(N'" + txtMaHDBan.Text.Trim() + "',N'" + cboMaHang.SelectedValue + "'," + txtSoLuong.Text + "," + txtDonGiaBan.Text + "," + txtGiamGia.Text + "," + txtThanhTien.Text + ")";
+            sql = "INSERT INTO Bill_Detail(bill_id,animal_id,quantity,price, discount,bill_detail_price) VALUES(N'" + txtMaHDBan.Text.Trim() + "',N'" + cboMaHang.SelectedValue + "'," + txtSoLuong.Text + "," + txtDonGiaBan.Text + "," + txtGiamGia.Text + "," + txtThanhTien.Text + ")";
             Functions.RunSQL(sql);
             LoadDataGridView();
             // Cập nhật lại số lượng của mặt hàng vào bảng tblHang
             SLcon = sl - Convert.ToDouble(txtSoLuong.Text);
-            sql = "UPDATE tblHang SET SoLuong =" + SLcon + " WHERE MaHang= N'" + cboMaHang.SelectedValue + "'";
+            sql = "UPDATE Animal SET quantity=" + SLcon + " WHERE animal_id= N'" + cboMaHang.SelectedValue + "'";
             Functions.RunSQL(sql);
             // Cập nhật lại tổng tiền cho hóa đơn bán
-            tong = Convert.ToDouble(Functions.GetFieldValues("SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'"));
+            tong = Convert.ToDouble(Functions.GetFieldValues("SELECT total_price FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'"));
             Tongmoi = tong + Convert.ToDouble(txtThanhTien.Text);
-            sql = "UPDATE tblHDBan SET TongTien =" + Tongmoi + " WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+            sql = "UPDATE Bill SET total_price=" + Tongmoi + " WHERE bill_id= N'" + txtMaHDBan.Text + "'";
             Functions.RunSQL(sql);
             txtTongTien.Text = Tongmoi.ToString();
             pa.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(Tongmoi.ToString());
@@ -275,13 +276,13 @@ namespace AnimalManagement
             exRange.Range["B1:B1"].ColumnWidth = 15;
             exRange.Range["A1:B1"].MergeCells = true;
             exRange.Range["A1:B1"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
-            exRange.Range["A1:B1"].Value = "Shop B.A.";
+            exRange.Range["A1:B1"].Value = "Shop G.K.";
             exRange.Range["A2:B2"].MergeCells = true;
             exRange.Range["A2:B2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
-            exRange.Range["A2:B2"].Value = "Chùa Bộc - Hà Nội";
+            exRange.Range["A2:B2"].Value = "Long Biên - Hà Nội";
             exRange.Range["A3:B3"].MergeCells = true;
             exRange.Range["A3:B3"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
-            exRange.Range["A3:B3"].Value = "Điện thoại: (04)38526419";
+            exRange.Range["A3:B3"].Value = "Điện thoại: (03)72454333";
             exRange.Range["C2:E2"].Font.Size = 16;
             exRange.Range["C2:E2"].Font.Bold = true;
             exRange.Range["C2:E2"].Font.ColorIndex = 3; //Màu đỏ
@@ -289,7 +290,7 @@ namespace AnimalManagement
             exRange.Range["C2:E2"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["C2:E2"].Value = "HÓA ĐƠN BÁN";
             // Biểu diễn thông tin chung của hóa đơn bán
-            sql = "SELECT a.MaHDBan, a.NgayBan, a.TongTien, b.TenKhach, b.DiaChi, b.DienThoai, c.TenNhanVien FROM tblHDBan AS a, tblKhach AS b, tblNhanVien AS c WHERE a.MaHDBan = N'" + txtMaHDBan.Text + "' AND a.MaKhach = b.MaKhach AND a.MaNhanVien = c.MaNhanVien";
+            sql = "SELECT a.bill_id, a.bill_date, a.total_price, b.customer_name, b.address, b.phone, c.staff_name FROM Bill AS a, Customer AS b, Staff AS c WHERE a.bill_id = N'" + txtMaHDBan.Text + "' AND a.customer_id = b.customer_id AND a.staff_id = c.staff_id";
             tblThongtinHD = Functions.GetDataToTable(sql);
             exRange.Range["B6:C9"].Font.Size = 12;
             exRange.Range["B6:B6"].Value = "Mã hóa đơn:";
@@ -305,16 +306,15 @@ namespace AnimalManagement
             exRange.Range["C9:E9"].MergeCells = true;
             exRange.Range["C9:E9"].Value = tblThongtinHD.Rows[0][5].ToString();
             //Lấy thông tin các mặt hàng
-            sql = "SELECT b.TenHang, a.SoLuong, b.DonGiaBan, a.GiamGia, a.ThanhTien " +
-                  "FROM tblChiTietHDBan AS a , tblHang AS b WHERE a.MaHDBan = N'" +
-                  txtMaHDBan.Text + "' AND a.MaHang = b.MaHang";
+            sql = "SELECT b.animal_name, a.quantity, b.selling_price, a.discount, a.bill_detail_price FROM Bill_Detail AS a , Animal AS b WHERE a.bill_id= N'" +
+                  txtMaHDBan.Text + "' AND a.animal_id = b.animal_id";
             tblThongtinHang = Functions.GetDataToTable(sql);
             //Tạo dòng tiêu đề bảng
             exRange.Range["A11:F11"].Font.Bold = true;
             exRange.Range["A11:F11"].HorizontalAlignment = COMExcel.XlHAlign.xlHAlignCenter;
             exRange.Range["C11:F11"].ColumnWidth = 12;
             exRange.Range["A11:A11"].Value = "STT";
-            exRange.Range["B11:B11"].Value = "Tên hàng";
+            exRange.Range["B11:B11"].Value = "Tên động vật";
             exRange.Range["C11:C11"].Value = "Số lượng";
             exRange.Range["D11:D11"].Value = "Đơn giá";
             exRange.Range["E11:E11"].Value = "Giảm giá";
@@ -384,24 +384,24 @@ namespace AnimalManagement
             double sl, slcon, slxoa;
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string sql = "SELECT MaHang,SoLuong FROM tblChiTietHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+                string sql = "SELECT animal_id,quantiy FROM Bill_Detail WHERE bill_id= N'" + txtMaHDBan.Text + "'";
                 DataTable tblHang = Functions.GetDataToTable(sql);
                 for (int hang = 0; hang <= tblHang.Rows.Count - 1; hang++)
                 {
                     // Cập nhật lại số lượng cho các mặt hàng
-                    sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblHang WHERE MaHang = N'" + tblHang.Rows[hang][0].ToString() + "'"));
+                    sl = Convert.ToDouble(Functions.GetFieldValues("SELECT quantity FROM Animal WHERE animal_id= N'" + tblHang.Rows[hang][0].ToString() + "'"));
                     slxoa = Convert.ToDouble(tblHang.Rows[hang][1].ToString());
                     slcon = sl + slxoa;
-                    sql = "UPDATE tblHang SET SoLuong =" + slcon + " WHERE MaHang= N'" + tblHang.Rows[hang][0].ToString() + "'";
+                    sql = "UPDATE Animal SET quantity=" + slcon + " WHERE animal_id= N'" + tblHang.Rows[hang][0].ToString() + "'";
                     Functions.RunSQL(sql);
                 }
 
                 //Xóa chi tiết hóa đơn
-                sql = "DELETE tblChiTietHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                sql = "DELETE Bill_Detail WHERE bill_id=N'" + txtMaHDBan.Text + "'";
                 Functions.RunSqlDel(sql);
 
                 //Xóa hóa đơn
-                sql = "DELETE tblHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "'";
+                sql = "DELETE Bill WHERE bill_id=N'" + txtMaHDBan.Text + "'";
                 Functions.RunSqlDel(sql);
                 ResetValues();
                 LoadDataGridView();
@@ -412,7 +412,7 @@ namespace AnimalManagement
 
         private void cboMaHDBan_DropDown(object sender, EventArgs e)
         {
-            Functions.FillCombo("SELECT MaHDBan FROM tblHDBan", cboMaHDBan, "MaHDBan", "MaHDBan");
+            Functions.FillCombo("SELECT bill_id FROM Bill", cboMaHDBan, "bill_id", "bill_id");
             cboMaHDBan.SelectedIndex = -1;
         }
 
@@ -435,20 +435,20 @@ namespace AnimalManagement
             if ((MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 //Xóa hàng và cập nhật lại số lượng hàng 
-                MaHangxoa = dgvHDBanHang.CurrentRow.Cells["MaHang"].Value.ToString();
-                SoLuongxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["SoLuong"].Value.ToString());
-                ThanhTienxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["ThanhTien"].Value.ToString());
-                sql = "DELETE tblChiTietHDBan WHERE MaHDBan=N'" + txtMaHDBan.Text + "' AND MaHang = N'" + MaHangxoa + "'";
+                MaHangxoa = dgvHDBanHang.CurrentRow.Cells["animal_id"].Value.ToString();
+                SoLuongxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["quantity"].Value.ToString());
+                ThanhTienxoa = Convert.ToDouble(dgvHDBanHang.CurrentRow.Cells["bill_detail_price"].Value.ToString());
+                sql = "DELETE Bill_Detail WHERE bill_id=N'" + txtMaHDBan.Text + "' AND animal_id = N'" + MaHangxoa + "'";
                 Functions.RunSQL(sql);
                 // Cập nhật lại số lượng cho các mặt hàng
-                sl = Convert.ToDouble(Functions.GetFieldValues("SELECT SoLuong FROM tblHang WHERE MaHang = N'" + MaHangxoa + "'"));
+                sl = Convert.ToDouble(Functions.GetFieldValues("SELECT quantity FROM Animal WHERE animal_id= N'" + MaHangxoa + "'"));
                 slcon = sl + SoLuongxoa;
-                sql = "UPDATE tblHang SET SoLuong =" + slcon + " WHERE MaHang= N'" + MaHangxoa + "'";
+                sql = "UPDATE Animal SET quantity=" + slcon + " WHERE animal_id= N'" + MaHangxoa + "'";
                 Functions.RunSQL(sql);
                 // Cập nhật lại tổng tiền cho hóa đơn bán
-                tong = Convert.ToDouble(Functions.GetFieldValues("SELECT TongTien FROM tblHDBan WHERE MaHDBan = N'" + txtMaHDBan.Text + "'"));
+                tong = Convert.ToDouble(Functions.GetFieldValues("SELECT total_price FROM Bill WHERE bill_id= N'" + txtMaHDBan.Text + "'"));
                 tongmoi = tong - ThanhTienxoa;
-                sql = "UPDATE tblHDBan SET TongTien =" + tongmoi + " WHERE MaHDBan = N'" + txtMaHDBan.Text + "'";
+                sql = "UPDATE Bill SET total_price =" + tongmoi + " WHERE bill_id = N'" + txtMaHDBan.Text + "'";
                 Functions.RunSQL(sql);
                 txtTongTien.Text = tongmoi.ToString();
                 lblBangChu.Text = "Bằng chữ: " + Functions.ChuyenSoSangChu(tongmoi.ToString());
@@ -478,7 +478,7 @@ namespace AnimalManagement
             if (cboMaNhanVien.Text == "")
                 txtTenNhanVien.Text = "";
             // Khi chọn Mã nhân viên thì tên nhân viên tự động hiện ra
-            str = "Select TenNhanVien from tblNhanVien where MaNhanVien =N'" + cboMaNhanVien.SelectedValue + "'";
+            str = "Select staff_name from Staff where staff_id =N'" + cboMaNhanVien.SelectedValue + "'";
             txtTenNhanVien.Text = Functions.GetFieldValues(str);
         }
 
@@ -492,11 +492,11 @@ namespace AnimalManagement
                 txtDienThoai.Text = "";
             }
             //Khi chọn Mã khách hàng thì các thông tin của khách hàng sẽ hiện ra
-            str = "Select TenKhach from tblKhach where MaKhach = N'" + cboMaKhach.SelectedValue + "'";
+            str = "Select customer_name from Customer where customer_id= N'" + cboMaKhach.SelectedValue + "'";
             txtTenKhach.Text = Functions.GetFieldValues(str);
-            str = "Select DiaChi from tblKhach where MaKhach = N'" + cboMaKhach.SelectedValue + "'";
+            str = "Select address from Customer where customer_id = N'" + cboMaKhach.SelectedValue + "'";
             txtDiaChi.Text = Functions.GetFieldValues(str);
-            str = "Select DienThoai from tblKhach where MaKhach= N'" + cboMaKhach.SelectedValue + "'";
+            str = "Select phone from Customer where customer_id= N'" + cboMaKhach.SelectedValue + "'";
             txtDienThoai.Text = Functions.GetFieldValues(str);
         }
 
@@ -509,9 +509,9 @@ namespace AnimalManagement
                 txtDonGiaBan.Text = "";
             }
             // Khi chọn mã hàng thì các thông tin về hàng hiện ra
-            str = "SELECT TenHang FROM tblHang WHERE MaHang =N'" + cboMaHang.SelectedValue + "'";
+            str = "SELECT animal_name FROM Animal WHERE animal_id=N'" + cboMaHang.SelectedValue + "'";
             txtTenHang.Text = Functions.GetFieldValues(str);
-            str = "SELECT DonGiaBan FROM tblHang WHERE MaHang =N'" + cboMaHang.SelectedValue + "'";
+            str = "SELECT selling_price FROM Animal WHERE animal_id =N'" + cboMaHang.SelectedValue + "'";
             txtDonGiaBan.Text = Functions.GetFieldValues(str);
         }
     }

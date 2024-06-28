@@ -221,70 +221,79 @@ namespace AnimalManagement.Class
             int mLen, mDigit;
             string mTemp = "";
             string[] mNumText;
-            //Xóa các dấu "," nếu có
-            sNumber = sNumber.Replace(",", "");
+            // Xóa các dấu "," nếu có
+            sNumber = sNumber.Replace(".", "");
+
+            // Kiểm tra xem sNumber có chứa ký tự không phải là chữ số không
+            foreach (char c in sNumber)
+            {
+                if (!char.IsDigit(c))
+                {
+                    throw new FormatException("Chuỗi chứa ký tự không hợp lệ: " + c);
+                }
+            }
+
             mNumText = "không;một;hai;ba;bốn;năm;sáu;bảy;tám;chín".Split(';');
             mLen = sNumber.Length - 1; // trừ 1 vì thứ tự đi từ 0
             for (int i = 0; i <= mLen; i++)
             {
                 mDigit = Convert.ToInt32(sNumber.Substring(i, 1));
                 mTemp = mTemp + " " + mNumText[mDigit];
-                if (mLen == i) // Chữ số cuối cùng không cần xét tiếp break; 
-                    switch ((mLen - i) % 9)
-                    {
-                        case 0:
-                            mTemp = mTemp + " tỷ";
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            break;
-                        case 6:
-                            mTemp = mTemp + " triệu";
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            break;
-                        case 3:
-                            mTemp = mTemp + " nghìn";
-                            if (sNumber.Substring(i + 1, 3) == "000") i = i + 3;
-                            break;
-                        default:
-                            switch ((mLen - i) % 3)
-                            {
-                                case 2:
-                                    mTemp = mTemp + " trăm";
-                                    break;
-                                case 1:
-                                    mTemp = mTemp + " mươi";
-                                    break;
-                            }
-                            break;
-                    }
+                if (mLen == i) // Chữ số cuối cùng không cần xét tiếp
+                    break;
+                switch ((mLen - i) % 9)
+                {
+                    case 0:
+                        mTemp = mTemp + " tỷ";
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        break;
+                    case 6:
+                        mTemp = mTemp + " triệu";
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        break;
+                    case 3:
+                        mTemp = mTemp + " nghìn";
+                        if (i + 4 <= sNumber.Length && sNumber.Substring(i + 1, 3) == "000") i += 3;
+                        break;
+                    default:
+                        switch ((mLen - i) % 3)
+                        {
+                            case 2:
+                                mTemp = mTemp + " trăm";
+                                break;
+                            case 1:
+                                mTemp = mTemp + " mươi";
+                                break;
+                        }
+                        break;
+                }
             }
-            //Loại bỏ trường hợp x00
+            // Loại bỏ trường hợp x00
             mTemp = mTemp.Replace("không mươi không ", "");
-            mTemp = mTemp.Replace("không mươi không", ""); //Loại bỏ trường hợp 00x 
-            mTemp = mTemp.Replace("không mươi ", "linh "); //Loại bỏ trường hợp x0, x>=2
+            mTemp = mTemp.Replace("không mươi không", ""); // Loại bỏ trường hợp 00x 
+            mTemp = mTemp.Replace("không mươi ", "linh "); // Loại bỏ trường hợp x0, x>=2
             mTemp = mTemp.Replace("mươi không", "mươi");
-            //Fix trường hợp 10
+            // Fix trường hợp 10
             mTemp = mTemp.Replace("một mươi", "mười");
-            //Fix trường hợp x4, x>=2
+            // Fix trường hợp x4, x>=2
             mTemp = mTemp.Replace("mươi bốn", "mươi tư");
-            //Fix trường hợp x04
+            // Fix trường hợp x04
             mTemp = mTemp.Replace("linh bốn", "linh tư");
-            //Fix trường hợp x5, x>=2
+            // Fix trường hợp x5, x>=2
             mTemp = mTemp.Replace("mươi năm", "mươi lăm");
-            //Fix trường hợp x1, x>=2
+            // Fix trường hợp x1, x>=2
             mTemp = mTemp.Replace("mươi một", "mươi mốt");
-            //Fix trường hợp x15
+            // Fix trường hợp x15
             mTemp = mTemp.Replace("mười năm", "mười lăm");
-            //Bỏ ký tự space
+            // Bỏ ký tự space
             mTemp = mTemp.Trim();
-            //Viết hoa ký tự đầu tiên
+            // Viết hoa ký tự đầu tiên
             mTemp = mTemp.Substring(0, 1).ToUpper() + mTemp.Substring(1) + " đồng";
             return mTemp;
         }
-
-
 
 
 

@@ -41,10 +41,10 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvChatLieu = new DataGridView();
             panel1.SuspendLayout();
             panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChatLieu).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -69,6 +69,7 @@
             btnBoQua.TabIndex = 4;
             btnBoQua.Text = "Bỏ qua";
             btnBoQua.UseVisualStyleBackColor = true;
+            btnBoQua.Click += btnBoQua_Click;
             // 
             // btnDong
             // 
@@ -78,6 +79,7 @@
             btnDong.TabIndex = 5;
             btnDong.Text = "Đóng";
             btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
             // 
             // btnLuu
             // 
@@ -87,6 +89,7 @@
             btnLuu.TabIndex = 3;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -96,6 +99,7 @@
             btnSua.TabIndex = 2;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -105,6 +109,7 @@
             btnXoa.TabIndex = 1;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -114,6 +119,7 @@
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // panel
             // 
@@ -147,9 +153,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(42, 94);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(82, 15);
             label3.TabIndex = 2;
-            label3.Text = "Tên loài vật:";
+            label3.Text = "Loài động vật:";
             // 
             // label2
             // 
@@ -170,31 +176,34 @@
             label1.Size = new Size(208, 25);
             label1.TabIndex = 0;
             label1.Text = "DANH MỤC LOÀI VẬT";
-            label1.Click += label1_Click;
             // 
-            // dataGridView1
+            // dgvChatLieu
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 166);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(800, 227);
-            dataGridView1.TabIndex = 1;
+            dgvChatLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvChatLieu.Dock = DockStyle.Fill;
+            dgvChatLieu.Location = new Point(0, 166);
+            dgvChatLieu.Name = "dgvChatLieu";
+            dgvChatLieu.Size = new Size(800, 227);
+            dgvChatLieu.TabIndex = 1;
+            dgvChatLieu.Click += dgvChatLieu_Click;
             // 
             // frmDMChatLieu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvChatLieu);
             Controls.Add(panel);
             Controls.Add(panel1);
             Name = "frmDMChatLieu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Danh mục chất liệu";
+            Load += frmDMChatLieu_Load;
+            KeyUp += txtMaChatLieu_KeyUp;
             panel1.ResumeLayout(false);
             panel.ResumeLayout(false);
             panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvChatLieu).EndInit();
             ResumeLayout(false);
         }
 
@@ -213,6 +222,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvChatLieu;
     }
 }

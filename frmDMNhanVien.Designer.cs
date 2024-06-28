@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnBoQua = new Button();
+            btnDong = new Button();
+            btnLuu = new Button();
+            btnSua = new Button();
+            btnXoa = new Button();
+            btnThem = new Button();
             panel = new Panel();
-            dtpNgaySinh = new DateTimePicker();
+            mskNgaySinh = new DateTimePicker();
             mtbDienThoai = new MaskedTextBox();
             txtDiaChi = new TextBox();
             chkGioiTinh = new CheckBox();
@@ -44,12 +50,6 @@
             label2 = new Label();
             label1 = new Label();
             dgvNhanVien = new DataGridView();
-            btnDong = new Button();
-            btnLuu = new Button();
-            btnSua = new Button();
-            btnXoa = new Button();
-            btnThem = new Button();
-            btnBoQua = new Button();
             panel1.SuspendLayout();
             panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
@@ -69,9 +69,69 @@
             panel1.Size = new Size(800, 57);
             panel1.TabIndex = 0;
             // 
+            // btnBoQua
+            // 
+            btnBoQua.Location = new Point(537, 16);
+            btnBoQua.Name = "btnBoQua";
+            btnBoQua.Size = new Size(111, 23);
+            btnBoQua.TabIndex = 14;
+            btnBoQua.Text = "Bỏ qua";
+            btnBoQua.UseVisualStyleBackColor = true;
+            btnBoQua.Click += btnBoQua_Click;
+            // 
+            // btnDong
+            // 
+            btnDong.Location = new Point(665, 17);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(109, 23);
+            btnDong.TabIndex = 13;
+            btnDong.Text = "Đóng";
+            btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
+            // 
+            // btnLuu
+            // 
+            btnLuu.Location = new Point(413, 17);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(100, 23);
+            btnLuu.TabIndex = 12;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
+            // 
+            // btnSua
+            // 
+            btnSua.Location = new Point(288, 16);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(100, 23);
+            btnSua.TabIndex = 11;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Location = new Point(164, 16);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(95, 23);
+            btnXoa.TabIndex = 10;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnThem
+            // 
+            btnThem.Location = new Point(26, 16);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(99, 23);
+            btnThem.TabIndex = 9;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
+            // 
             // panel
             // 
-            panel.Controls.Add(dtpNgaySinh);
+            panel.Controls.Add(mskNgaySinh);
             panel.Controls.Add(mtbDienThoai);
             panel.Controls.Add(txtDiaChi);
             panel.Controls.Add(chkGioiTinh);
@@ -90,13 +150,13 @@
             panel.Size = new Size(800, 166);
             panel.TabIndex = 1;
             // 
-            // dtpNgaySinh
+            // mskNgaySinh
             // 
-            dtpNgaySinh.Format = DateTimePickerFormat.Short;
-            dtpNgaySinh.Location = new Point(500, 127);
-            dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(200, 23);
-            dtpNgaySinh.TabIndex = 12;
+            mskNgaySinh.Format = DateTimePickerFormat.Short;
+            mskNgaySinh.Location = new Point(500, 127);
+            mskNgaySinh.Name = "mskNgaySinh";
+            mskNgaySinh.Size = new Size(200, 23);
+            mskNgaySinh.TabIndex = 12;
             // 
             // mtbDienThoai
             // 
@@ -212,60 +272,7 @@
             dgvNhanVien.Name = "dgvNhanVien";
             dgvNhanVien.Size = new Size(800, 227);
             dgvNhanVien.TabIndex = 2;
-            // 
-            // btnDong
-            // 
-            btnDong.Location = new Point(665, 17);
-            btnDong.Name = "btnDong";
-            btnDong.Size = new Size(109, 23);
-            btnDong.TabIndex = 13;
-            btnDong.Text = "Đóng";
-            btnDong.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            btnLuu.Location = new Point(413, 17);
-            btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(100, 23);
-            btnLuu.TabIndex = 12;
-            btnLuu.Text = "Lưu";
-            btnLuu.UseVisualStyleBackColor = true;
-            // 
-            // btnSua
-            // 
-            btnSua.Location = new Point(288, 16);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(100, 23);
-            btnSua.TabIndex = 11;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            btnXoa.Location = new Point(164, 16);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(95, 23);
-            btnXoa.TabIndex = 10;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // btnThem
-            // 
-            btnThem.Location = new Point(26, 16);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(99, 23);
-            btnThem.TabIndex = 9;
-            btnThem.Text = "Thêm";
-            btnThem.UseVisualStyleBackColor = true;
-            // 
-            // btnBoQua
-            // 
-            btnBoQua.Location = new Point(537, 16);
-            btnBoQua.Name = "btnBoQua";
-            btnBoQua.Size = new Size(111, 23);
-            btnBoQua.TabIndex = 14;
-            btnBoQua.Text = "Bỏ qua";
-            btnBoQua.UseVisualStyleBackColor = true;
+            dgvNhanVien.Click += dgvNhanVien_Click;
             // 
             // frmDMNhanVien
             // 
@@ -277,6 +284,7 @@
             Controls.Add(panel1);
             Name = "frmDMNhanVien";
             Text = "Danh mục nhân viên";
+            Load += frmDMNhanVien_Load;
             panel1.ResumeLayout(false);
             panel.ResumeLayout(false);
             panel.PerformLayout();
@@ -301,7 +309,7 @@
         private CheckBox chkGioiTinh;
         private TextBox txtTenNhanVien;
         private TextBox txtMaNhanVien;
-        private DateTimePicker dtpNgaySinh;
+        private DateTimePicker mskNgaySinh;
         private Button btnBoQua;
         private Button btnDong;
         private Button btnLuu;

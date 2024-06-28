@@ -3,7 +3,6 @@ D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-w
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\AnimalManagement.runtimeconfig.json
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\AnimalManagement.dll
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\AnimalManagement.pdb
-D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.Form1.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmHoaDonBan.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.Properties.Resources.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.csproj.GenerateResource.cache
@@ -22,3 +21,13 @@ D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-w
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmDMNhanVien.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmTimKiemHD.resources
 D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.sourcelink.json
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\AnimalManagement.dll.config
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.csproj.AssemblyReference.cache
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalManagement.frmMain.resources
+D:\FPTU\Semester 5\PRN212\Project Individual\AnimalManagement\obj\Debug\net8.0-windows\AnimalMa.F0A6B9FF.Up2Date

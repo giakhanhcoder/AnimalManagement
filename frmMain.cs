@@ -59,7 +59,9 @@ namespace AnimalManagement
 
         private void mnuFindHoaDon_Click(object sender, EventArgs e)
         {
-
+            frmTimKiemHD frmTimKiemHD = new frmTimKiemHD();
+            frmTimKiemHD.MdiParent = this;
+            frmTimKiemHD.Show();
         }
 
         private void mnuFindHang_Click(object sender, EventArgs e)

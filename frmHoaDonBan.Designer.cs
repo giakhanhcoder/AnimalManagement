@@ -668,7 +668,6 @@
         private TextBox txtTenNhanVien;
         private ComboBox cboMaNhanVien;
         private DateTimePicker txtNgayBan;
-        private TextBox txtMaHDBan;
         private TextBox txtDiaChi;
         private TextBox txtTenKhach;
         private MaskedTextBox txtDienThoai;

@@ -15,6 +15,7 @@ namespace AnimalManagement
 {
     public partial class frmHoaDonBan : Form
     {
+        public TextBox txtMaHDBan; // Đảm bảo thuộc tính này là public
         DataTable tblCTHDB; //Bảng chi tiết hoá đơn bán
 
         public frmHoaDonBan()
@@ -384,7 +385,7 @@ namespace AnimalManagement
             double sl, slcon, slxoa;
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string sql = "SELECT animal_id,quantiy FROM Bill_Detail WHERE bill_id= N'" + txtMaHDBan.Text + "'";
+                string sql = "SELECT animal_id,quantity FROM Bill_Detail WHERE bill_id= N'" + txtMaHDBan.Text + "'";
                 DataTable tblHang = Functions.GetDataToTable(sql);
                 for (int hang = 0; hang <= tblHang.Rows.Count - 1; hang++)
                 {

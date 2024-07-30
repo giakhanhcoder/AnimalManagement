@@ -19,7 +19,7 @@ namespace AnimalManagement.Class
         {
 
             con = new SqlConnection();  
-            con.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\AnimalManager.mdf;Integrated Security=True;Connect Timeout=30";
+            con.ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\AnimalManager.mdf;Integrated Security=True;Connect Timeout=30";
 
             //Kiểm tra kết nối
             if (con.State != ConnectionState.Open)

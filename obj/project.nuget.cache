@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gQ+7wGhuwEb77gJNR6LBc7hlnB37BKe3fVGH+d3q5y2ySzrHrBgiKs3n3L56r4AdCbVbnzv6toCsTeyGa5aRRw==",
+  "dgSpecHash": "ibG+9GJ+xSJQ/f7bt7s97BoCx5082gjpC7KjSeEDTo73yYOvOiy/JvMV8E8mn50XXi30PVuxvhYrI/0NKuaNRQ==",
   "success": true,
-  "projectFilePath": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\AnimalManagement.csproj",
+  "projectFilePath": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\AnimalManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GIA KHANH\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\GIA KHANH\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

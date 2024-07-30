@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\",
+  "WorkspaceRootPath": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual\\animalmanagement\\class\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual winform\\animalmanagement\\class\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:class\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|d:\\fptu\\semester 5\\prn212\\project individual winform\\animalmanagement\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{30BB2A21-F35A-41C6-8D4A-C7B763D65396}|AnimalManagement.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,17 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\frmMain.cs [Design]",
+              "RelativeToolTip": "frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T00:54:20.887Z",
+              "EditorCaption": " [Design]"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Functions.cs",
-              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Class\\Functions.cs",
+              "DocumentMoniker": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\Class\\Functions.cs",
               "RelativeDocumentMoniker": "Class\\Functions.cs",
-              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual\\AnimalManagement\\Class\\Functions.cs",
+              "ToolTip": "D:\\FPTU\\Semester 5\\PRN212\\Project Individual WINFORM\\AnimalManagement\\Class\\Functions.cs",
               "RelativeToolTip": "Class\\Functions.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAKwAAAA5AAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAwB0AAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-04T13:49:56.556Z",
               "EditorCaption": ""
